@@ -153,7 +153,7 @@ func (c *Client) makeRequest(method, path string, payload interface{}) (*http.Re
 			req.ContentLength = int64(len(body))
 		}
 		// add auth
-		req.Header.Add("Authorization", c.ApiKey)
+		req.Header.Add("Authorization", c.WriteKey)
 
 		return req, nil
 	} else {
