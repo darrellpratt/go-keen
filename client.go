@@ -63,6 +63,7 @@ func (a BySentiment) Less(i, j int) bool { return a[i].Result < a[j].Result }
 func NewClient(apiKey, writeKey, projectId string) *Client {
 	c := &Client{
 		ApiKey:     apiKey,
+		WriteKey:   writeKey,
 		ProjectId:  projectId,
 		httpClient: http.DefaultClient,
 	}
@@ -141,7 +142,8 @@ func (c *Client) makeRequest(method, path string, payload interface{}) (*http.Re
 		if err != nil {
 			return nil, err
 		}
-
+		log.Print("making post request")
+		log.Printf("ApiKey: %v", c.WriteKey)
 		// new request
 		req, err := http.NewRequest(method, url, bytes.NewReader(body))
 		if err != nil {
