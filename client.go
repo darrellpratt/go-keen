@@ -14,7 +14,7 @@ import (
 
 const (
 	baseUrl       = "https://api.keen.io/3.0/projects/"
-	queryTemplate = `/queries/{{.Type}}?event_collection={{.EventCollection}}&target_property={{.TargetProperty}}&group_by={{.GroupBy}}`
+	queryTemplate = `/queries/{{.Type}}?event_collection={{.EventCollection}}&target_property={{.TargetProperty}}&group_by={{.GroupBy}}&timeframe=this_7_days`
 )
 
 type KeenProperties struct {
